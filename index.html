@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Shruti Jagdale, Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#f8f1e4;
+    --cream-card:#f5eedb;
+    --tan:#e9cba9;
+    --dusty-blue:#a9bfd6;
+    --sand:#f1e6cf;
+    --blush:#dcae8c;
+    --navy:#232a42;
+    --text-dim:#8a8168;
+    --rose:#c1876a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Jost', sans-serif;
+    background:var(--cream);
+    color:var(--navy);
+    line-height:1.65;
+  }
+  h1,h2,h3,.serif{font-family:'Fraunces', serif;}
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 48px;}
+
+  /* Social rail */
+  .social-rail{
+    position:fixed; right:32px; top:50%; transform:translateY(-50%);
+    display:flex; flex-direction:column; gap:16px; z-index:150;
+  }
+  .social-rail a{
+    width:52px; height:52px; border-radius:50%;
+    background:var(--cream-card); border:1.5px solid var(--navy);
+    display:flex; align-items:center; justify-content:center;
+    color:var(--navy); box-shadow:0 6px 16px rgba(35,42,66,0.14);
+    transition: background .2s, color .2s, transform .2s;
+  }
+  .social-rail a:hover{background:var(--navy); color:var(--cream); transform:scale(1.08);}
+  .social-rail svg{width:23px; height:23px;}
+
+  /* Header / nav */
+  header{
+    position:sticky; top:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:32px 64px 0 64px;
+  }
+  .logo{display:flex; flex-direction:column; align-items:flex-start; line-height:1;}
+  .logo .mark{
+    font-family:'Fraunces', serif; font-size:2.3rem; font-weight:500; color:var(--navy);
+    letter-spacing:-2px;
+  }
+  .logo .name{
+    font-size:0.68rem; letter-spacing:3px; color:var(--text-dim); margin-top:6px; text-transform:uppercase;
+  }
+  nav ul{list-style:none; display:flex; gap:34px; margin:0; padding:0;}
+  nav ul li a{
+    font-size:0.78rem; letter-spacing:1.5px; font-weight:500; text-transform:uppercase; color:var(--navy);
+    padding-bottom:3px; border-bottom:1px solid transparent;
+  }
+  nav ul li a:hover{border-color:var(--rose); color:var(--rose);}
+
+  section{padding:110px 0 100px 0;}
+  .eyebrow{
+    font-size:0.78rem; letter-spacing:3px; text-transform:uppercase; color:var(--rose); font-weight:600; margin-bottom:14px;
+  }
+  .section-title{font-size:2.1rem; font-weight:500; margin:0 0 46px 0; color:var(--navy);}
+
+  /* HERO */
+  #intro{padding-top:80px; padding-bottom:70px;}
+  .hero-flex{display:flex; justify-content:space-between; align-items:center; gap:60px; flex-wrap:wrap;}
+  .hero-text{flex:1; min-width:320px;}
+  .hero-line{font-size:1.15rem; letter-spacing:2px; text-transform:uppercase; color:var(--rose); font-weight:500; margin-bottom:6px;}
+  .hero-word{
+    font-size:5.6rem; font-weight:400; margin:0; color:var(--navy); min-height:1.1em;
+    font-style:italic;
+  }
+  .cursor-blink{display:inline-block; width:3px; background:var(--navy); animation:blink 1s step-start infinite; margin-left:4px; height:0.9em; vertical-align:-0.08em;}
+  @keyframes blink{50%{opacity:0;}}
+  .hero-sub{max-width:520px; color:var(--text-dim); font-size:1rem; margin-top:22px;}
+  .hero-actions{margin-top:34px; display:flex; gap:16px; flex-wrap:wrap; align-items:center;}
+  .btn-outline{
+    border:1px solid var(--navy); padding:14px 30px; border-radius:2px; font-size:0.85rem;
+    letter-spacing:1px; text-transform:uppercase; font-weight:500; display:inline-block;
+    transition:background .2s, color .2s;
+  }
+  .btn-outline:hover{background:var(--navy); color:var(--cream);}
+  .hero-meta{color:var(--text-dim); font-size:0.85rem;}
+
+  .hero-photo-frame{
+    width:290px; height:290px; border-radius:50%;
+    border:2px dashed var(--rose);
+    padding:13px; flex-shrink:0;
+    margin-right:110px;
+  }
+  .hero-photo-inner{position:relative; width:100%; height:100%; border-radius:50%; overflow:hidden;}
+  .hero-photo-placeholder{
+    position:absolute; inset:0; border-radius:50%;
+    background: linear-gradient(160deg,#aec2da 0%, #d7c3b9 55%, #e9d3b5 100%);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif; font-style:italic; font-size:3.2rem; color:var(--cream);
+  }
+  .hero-photo-inner img{
+    position:absolute; inset:0; width:100%; height:100%; border-radius:50%;
+    object-fit:cover; display:block; z-index:2;
+  }
+
+  /* ABOUT — postcard */
+  #about{background:var(--tan);}
+  .postcard{
+    max-width:1020px; margin:0 auto;
+    background:var(--cream-card);
+    border-radius:16px;
+    border:1.5px dashed rgba(35,42,66,0.32);
+    box-shadow:0 30px 60px rgba(35,42,66,0.12);
+    display:flex; flex-wrap:wrap; overflow:hidden;
+  }
+  .postcard-message{flex:1.1; min-width:300px; padding:56px 46px; position:relative;}
+  .postcard-message h2{font-size:2rem; font-weight:400; font-style:italic; margin:0 0 20px 0;}
+  .postcard-message p{color:var(--text-dim); font-size:0.97rem; margin:0;}
+  .postcard-divider{width:1px; background:repeating-linear-gradient(to bottom, rgba(35,42,66,0.3) 0 6px, transparent 6px 13px); align-self:stretch; margin:40px 0;}
+  .postcard-address{
+    flex:1.1; min-width:300px; padding:48px 46px; display:flex; flex-direction:column;
+    align-items:flex-end; justify-content:center; gap:30px;
+  }
+  .postmark-deco{opacity:0.55; color:var(--text-dim);}
+  .postcard-fields{width:100%; display:flex; flex-direction:column; gap:22px;}
+  .field{border-bottom:1px dotted rgba(35,42,66,0.4); padding-bottom:10px; text-align:right;}
+  .field .fl{font-size:0.66rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--rose); font-weight:600;}
+  .field .fv-main{font-size:0.94rem; margin-top:6px; color:var(--navy); white-space:nowrap;}
+  .field .fv-sub{font-size:0.8rem; margin-top:4px; color:var(--text-dim); white-space:nowrap;}
+  .postmark-text{font-family:'Fraunces',serif; font-style:italic; color:var(--text-dim); font-size:0.85rem; text-align:right;}
+  @media(max-width:600px){
+    .field .fv-main, .field .fv-sub{white-space:normal;}
+  }
+
+  /* EXPERIENCE */
+  #experience{background:var(--dusty-blue);}
+  .stamp-card{
+    background:var(--cream-card);
+    border-radius:6px;
+    padding:38px 44px 34px 44px;
+    position:relative;
+    margin-bottom:56px;
+  }
+  .stamp-card::before, .stamp-card::after{
+    content:'';
+    position:absolute; left:0; right:0; height:17px;
+    background: radial-gradient(circle at 8.5px 8.5px, var(--dusty-blue) 8.5px, transparent 9px) repeat-x left top / 17px 17px;
+  }
+  .stamp-card::before{ top:-1px; }
+  .stamp-card::after{ bottom:-1px; transform:scaleY(-1); }
+  .stamp-head{display:flex; justify-content:space-between; flex-wrap:wrap; gap:8px; align-items:baseline; margin-bottom:10px;}
+  .stamp-head .title{font-family:'Fraunces', serif; font-size:1.4rem; font-weight:500;}
+  .stamp-head .date{color:var(--text-dim); font-size:0.8rem; white-space:nowrap;}
+  .org-pill{
+    display:inline-block; background:var(--rose); color:var(--cream); font-size:0.78rem;
+    font-weight:600; padding:5px 16px; border-radius:20px; margin-bottom:18px;
+  }
+  .stamp-card ul{margin:0; padding-left:20px; color:var(--text-dim); font-size:0.92rem;}
+  .stamp-card ul li{margin-bottom:8px;}
+
+  /* PROJECT GALLERY */
+  #healthcare, #projects{background:var(--sand);}
+  .gallery-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; flex-wrap:wrap; gap:16px;}
+  .gallery-arrows{display:flex; gap:10px;}
+  .arrow-btn{
+    width:38px; height:38px; border-radius:50%; border:1px solid var(--navy); background:none;
+    display:flex; align-items:center; justify-content:center; cursor:pointer; color:var(--navy);
+  }
+  .arrow-btn:hover{background:var(--navy); color:var(--cream);}
+  .scroll-row{
+    display:flex; gap:22px; overflow-x:auto; padding-bottom:14px; scroll-snap-type:x proximity;
+    scrollbar-width:thin;
+  }
+  .scroll-row::-webkit-scrollbar{height:6px;}
+  .scroll-row::-webkit-scrollbar-thumb{background:var(--tan); border-radius:4px;}
+  .centered-row{
+    display:flex; gap:22px; flex-wrap:wrap; justify-content:center;
+  }
+  .proj-card{
+    flex:0 0 280px; scroll-snap-align:start; background:var(--cream-card); border-radius:14px;
+    overflow:hidden; cursor:pointer; transition:transform .2s; border:1px solid rgba(35,42,66,0.06);
+  }
+  .proj-card:hover{transform:translateY(-4px);}
+  .proj-band{height:120px; display:flex; align-items:flex-end; padding:14px 18px;}
+  .proj-band .cat{font-size:0.68rem; letter-spacing:1.2px; text-transform:uppercase; font-weight:600; color:#fff;}
+  .band-rose{background:linear-gradient(135deg,#d6a184,#c1876a);}
+  .band-blue{background:linear-gradient(135deg,#b6c7de,#8fa6c4);}
+  .band-sage{background:linear-gradient(135deg,#b9c6a4,#94a67f);}
+  .proj-body{padding:20px 20px 24px 20px;}
+  .proj-body h3{font-size:1.02rem; font-weight:500; margin:0 0 8px 0; font-family:'Fraunces', serif;}
+  .proj-body p{font-size:0.85rem; color:var(--text-dim); margin:0 0 10px 0;}
+  .proj-body .date{font-size:0.74rem; color:var(--text-dim);}
+
+  /* Modal */
+  .modal-overlay{
+    display:none; position:fixed; inset:0; background:rgba(35,42,66,0.55);
+    align-items:center; justify-content:center; z-index:300; padding:20px;
+  }
+  .modal-overlay.active{display:flex;}
+  .modal{
+    background:var(--cream-card); border-radius:16px;
+    max-width:600px; width:100%; max-height:85vh; overflow-y:auto; padding:44px 46px;
+    position:relative; box-shadow:0 30px 60px rgba(0,0,0,0.25);
+  }
+  .modal .close{
+    position:absolute; top:20px; right:24px; cursor:pointer; color:var(--text-dim);
+    font-size:1.4rem; line-height:1; border:none; background:none;
+  }
+  .modal .close:hover{color:var(--navy);}
+  .modal .cat{color:var(--rose); font-size:0.72rem; font-weight:600; text-transform:uppercase; letter-spacing:1.2px;}
+  .modal h3{margin:10px 0 4px 0; font-size:1.5rem; font-weight:500;}
+  .modal .date{color:var(--text-dim); font-size:0.85rem; margin-bottom:20px;}
+  .modal ul{padding-left:20px; color:var(--text-dim); font-size:0.93rem;}
+  .modal ul li{margin-bottom:9px;}
+  .modal .gh-link{display:inline-block; margin-top:18px; font-weight:600; color:var(--rose); border-bottom:1px solid var(--rose);}
+
+  /* PUBLICATIONS */
+  #publications{background:var(--cream);}
+  .pub-row{
+    display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap;
+    padding:24px 12px; margin:0 -12px; border-bottom:1px solid rgba(35,42,66,0.12);
+    border-radius:8px; transition:background .2s;
+  }
+  .pub-row:hover{background:rgba(35,42,66,0.05);}
+  .pub-row:first-of-type{border-top:1px solid rgba(35,42,66,0.12);}
+  .pub-row .title{font-family:'Fraunces', serif; font-style:italic; font-size:1.08rem; color:var(--navy);}
+  .pub-row .venue{color:var(--rose); font-size:0.85rem; margin-top:4px;}
+  .pub-row .date{color:var(--text-dim); font-size:0.8rem; white-space:nowrap;}
+
+  /* FOOTER / CONTACT */
+  #contact{background:var(--blush); padding-bottom:60px;}
+  .contact-card{
+    background:var(--cream-card); border-radius:16px; padding:56px 64px;
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:40px;
+  }
+  .contact-card h2{font-size:2rem; font-weight:400; font-style:italic; margin:0;}
+  .contact-details{display:flex; flex-direction:column; gap:8px; align-items:flex-end;}
+  .contact-details a, .contact-details span{color:var(--text-dim); font-size:0.92rem;}
+  .contact-details a:hover{color:var(--rose);}
+  .tag-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+  .tag-pill{
+    background:rgba(35,42,66,0.06); color:var(--navy); font-size:0.76rem; padding:6px 14px; border-radius:20px;
+  }
+  footer{text-align:center; padding:30px 0 40px 0;}
+  footer .mark{font-family:'Fraunces', serif; font-size:1.4rem; color:var(--navy);}
+  footer .copy{font-size:0.78rem; color:var(--text-dim); margin-top:8px;}
+
+  @media(max-width:860px){
+    header{padding:24px 24px 0 24px;}
+    nav ul{gap:16px; flex-wrap:wrap;}
+    .wrap{padding:0 24px;}
+    .hero-word{font-size:3rem;}
+    .hero-photo-frame{width:170px; height:170px; margin-right:0;}
+    .postcard-message, .postcard-address{padding:36px 30px;}
+    .postcard-divider{display:none;}
+    .postcard-address{align-items:flex-start;}
+    .field{text-align:left;}
+    .postmark-text{text-align:left;}
+    .contact-card{flex-direction:column; align-items:flex-start; padding:40px 32px;}
+    .contact-details{align-items:flex-start;}
+    .social-rail{display:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="social-rail">
+  <a href="https://github.com/Shrutij516/" target="_blank" rel="noopener" aria-label="GitHub">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+  </a>
+  <a href="https://www.linkedin.com/in/shrutijagdale16/" target="_blank" rel="noopener" aria-label="LinkedIn">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+  </a>
+  <a href="mailto:shrutijms@gmail.com" aria-label="Email">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+  </a>
+</div>
+
+<header>
+  <div class="logo">
+    <span class="mark">SJ</span>
+    <span class="name">Shruti Jagdale</span>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#healthcare">Healthcare AI</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#publications">Publications</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="Shruti_Jagdale_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section id="intro">
+  <div class="wrap">
+    <div class="hero-flex">
+      <div class="hero-text">
+        <div class="hero-line">I'm Shruti and I'm</div>
+        <h1 class="hero-word"><span id="typewriter"></span><span class="cursor-blink"></span></h1>
+        <p class="hero-sub">AI engineer building agentic systems, retrieval pipelines, and healthcare ML that ship to production. M.S. Data Science, Stony Brook University.</p>
+        <div class="hero-actions">
+          <a class="btn-outline" href="#projects">View Projects</a>
+          <span class="hero-meta">Stony Brook, NY &nbsp;·&nbsp; shrutijms@gmail.com</span>
+        </div>
+      </div>
+      <div class="hero-photo-frame">
+        <div class="hero-photo-inner">
+          <div class="hero-photo-placeholder">
+            <span>SJ</span>
+          </div>
+          <img src="photo.jpg" alt="Shruti Jagdale" onerror="this.style.display='none';">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT — postcard -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">About</div>
+    <div class="postcard">
+      <div class="postcard-message">
+        <h2>Why, hello.</h2>
+        <p>
+          I'm Shruti, an AI engineer who builds systems that ship, not just models that demo.
+          My work sits at the intersection of agentic AI, retrieval, and NLP: production RAG pipelines,
+          autonomous tool calling agents, and LLM security and evaluation tooling. I bring that same rigor
+          to healthcare AI, clinical NLP, and low resource language research, with three papers published
+          at IEEE, ACL, and Springer venues.
+        </p>
+      </div>
+      <div class="postcard-divider"></div>
+      <div class="postcard-address">
+        <svg class="postmark-deco" width="120" height="46" viewBox="0 0 120 46" fill="none">
+          <path d="M2 12 Q 12 2, 22 12 T 42 12 T 62 12 T 82 12 T 102 12 T 118 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M2 24 Q 12 14, 22 24 T 42 24 T 62 24 T 82 24 T 102 24 T 118 24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M2 36 Q 12 26, 22 36 T 42 36 T 62 36 T 82 36 T 102 36 T 118 36" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+        </svg>
+        <div class="postcard-fields">
+          <div class="field">
+            <div class="fl">Education</div>
+            <div class="fv-main">M.S. Data Science</div>
+            <div class="fv-sub">Stony Brook University &middot; 2026 &middot; GPA 3.78</div>
+          </div>
+          <div class="field">
+            <div class="fl">Focus</div>
+            <div class="fv-main">Agentic AI &middot; RAG</div>
+            <div class="fv-sub">NLP &middot; Healthcare ML</div>
+          </div>
+        </div>
+        <div class="postmark-text">Postmarked from Stony Brook, NY</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Experience</div>
+    <h2 class="section-title">Where I've built things.</h2>
+
+    <div class="stamp-card">
+      <div class="stamp-head">
+        <div><span class="title">ML Engineer, Agentic Systems</span></div>
+        <div class="date">May 2025 &ndash; Jan 2026 &nbsp;|&nbsp; Stony Brook, NY</div>
+      </div>
+      <div class="org-pill">Zeblok Computational</div>
+      <ul>
+        <li>Built a production multimodal RAG pipeline serving LLaMA-70B via vLLM with text/image embeddings (MiniLM, CLIP), a ChromaDB vector store, and PyMuPDF OCR for document ingestion.</li>
+        <li>Designed a recursive agent framework with MCP tool-calling, letting the LLM autonomously invoke retrieval, OCR, and SQL tools mid-inference.</li>
+        <li>Evaluated LLM security posture using PyRIT for red-teaming and adversarial robustness testing, LLM Guard for PII redaction and prompt hygiene, and ModelScan for model file security, informing a production hardening roadmap.</li>
+        <li>Built LLM evaluation tooling (CoT trace logging, SQLite chat memory, embedding-store CRUD), cutting irrelevant outputs by 50% and retrieval time by 20%.</li>
+        <li>Streamlined the FastAPI microservice architecture, reducing end-to-end response latency by 25%.</li>
+      </ul>
+    </div>
+
+    <div class="stamp-card">
+      <div class="stamp-head">
+        <div><span class="title">ML Research Engineer</span></div>
+        <div class="date">Jun 2023 &ndash; Jun 2024 &nbsp;|&nbsp; Pune, India</div>
+      </div>
+      <div class="org-pill">L3Cube Research Lab</div>
+      <ul>
+        <li>Fine-tuned a Gemma-2B transformer on low-resource Marathi corpora via SFT (PEFT/LoRA) using HuggingFace on multi-GPU pipelines.</li>
+        <li>Challenged conventional benchmark accuracy through manual evaluation and QA of the fine-tuned model's code-switched outputs, improving AI4Bharat benchmark accuracy by 65% and surfacing gaps between automated metrics and manual evaluation.</li>
+        <li>First-authored "On Importance of Code-Mixed Embeddings for Hate Speech Identification" (Springer, ICCCN 2024), benchmarking BERT vs. HingBERT and FastText vs. Hing-FastText embeddings on Hindi-English code-mixed hate speech datasets, showing HingBERT and Hing-FastText outperform standard baselines across F1, precision, and recall.</li>
+        <li>Co-authored two additional peer-reviewed papers (IEEE ICETITE, ACL CHiPSAL) on code-mixed NER and low-resource LLM adaptation, and trained multilingual embeddings (Hing-BERT, Hing-FastText, Hing-GPT) for social media NLP.</li>
+      </ul>
+    </div>
+
+    <div class="stamp-card" style="margin-bottom:0;">
+      <div class="stamp-head">
+        <div><span class="title">Data Scientist</span></div>
+        <div class="date">Mar 2023 &ndash; Jul 2023 &nbsp;|&nbsp; Assam, India</div>
+      </div>
+      <div class="org-pill">FeyNN Labs</div>
+      <ul>
+        <li>Applied clustering (K-Means), feature engineering, and data visualization on 10K+ consumer records to model EV adoption, building Tableau and Power BI dashboards to communicate findings.</li>
+        <li>Improved baseline accuracy by 59% using ensemble methods (XGBoost, Random Forest); findings informed EV behavior analysis and infrastructure planning decisions.</li>
+        <li>Benchmarked SVM, KNN, and Logistic Regression for predictive maintenance on IoT sensor data, applying anomaly detection and classification on historical records.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- HEALTHCARE -->
+<section id="healthcare">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div>
+        <div class="eyebrow">Healthcare AI</div>
+        <h2 class="section-title" style="margin-bottom:0;">Where ML meets medicine.</h2>
+      </div>
+    </div>
+    <div class="centered-row" id="healthcare-scroll"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div>
+        <div class="eyebrow">Projects</div>
+        <h2 class="section-title" style="margin-bottom:0;">A peek into what I build.</h2>
+      </div>
+      <div class="gallery-arrows">
+        <button class="arrow-btn" onclick="scrollRow('projects-scroll',-1)">&#8249;</button>
+        <button class="arrow-btn" onclick="scrollRow('projects-scroll',1)">&#8250;</button>
+      </div>
+    </div>
+    <div class="scroll-row" id="projects-scroll"></div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="wrap">
+    <div class="eyebrow">Publications</div>
+    <h2 class="section-title">Peer-reviewed work.</h2>
+
+    <a class="pub-row" href="https://link.springer.com/book/10.1007/978-981-96-3244-2" target="_blank" rel="noopener">
+      <div>
+        <div class="title">Code-Mixed Embeddings for Hate Speech Detection</div>
+        <div class="venue">Springer Nature, ICCCN 2024 &middot; First Author</div>
+      </div>
+      <div class="date">Jun 2025</div>
+    </a>
+    <a class="pub-row" href="https://aclanthology.org/2025.chipsal-1.22/" target="_blank" rel="noopener">
+      <div>
+        <div class="title">Adapting LLMs to Low-Resource Settings</div>
+        <div class="venue">ACL, CHiPSAL 2025</div>
+      </div>
+      <div class="date">Jan 2025</div>
+    </a>
+    <a class="pub-row" href="https://ieeexplore.ieee.org/document/10493709" target="_blank" rel="noopener">
+      <div>
+        <div class="title">Code-Mixing in Named Entity Recognition</div>
+        <div class="venue">IEEE, ICETITE 2024</div>
+      </div>
+      <div class="date">Feb 2024</div>
+    </a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="contact-card">
+      <div>
+        <h2>Thanks for stopping by.</h2>
+        <div class="tag-row">
+          <span class="tag-pill">Agentic AI</span>
+          <span class="tag-pill">RAG</span>
+          <span class="tag-pill">NLP</span>
+          <span class="tag-pill">Healthcare ML</span>
+        </div>
+      </div>
+      <div class="contact-details">
+        <a href="mailto:shrutijms@gmail.com">shrutijms@gmail.com</a>
+        <span>+1 (934) 255-9155</span>
+        <a href="https://github.com/Shrutij516/" target="_blank" rel="noopener">github.com/Shrutij516</a>
+        <a href="https://www.linkedin.com/in/shrutijagdale16/" target="_blank" rel="noopener">linkedin.com/in/shrutijagdale16</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="mark">SJ</div>
+  <div class="copy">&copy; 2026 Shruti Jagdale</div>
+</footer>
+
+<!-- Modal -->
+<div class="modal-overlay" id="modal-overlay">
+  <div class="modal">
+    <button class="close" id="modal-close">&times;</button>
+    <div class="cat" id="modal-cat"></div>
+    <h3 id="modal-title"></h3>
+    <div class="date" id="modal-date"></div>
+    <ul id="modal-bullets"></ul>
+    <div id="modal-link"></div>
+  </div>
+</div>
+
+<script>
+const healthcareProjects = [
+  {
+    cat: "Coursework Research", band:"band-rose",
+    title: "AKI Dialysis Risk Prediction",
+    date: "Jan 2026 – May 2026",
+    summary: "ML risk-prediction models for dialysis requirement in AKI using longitudinal EHR data.",
+    bullets: [
+      "Built ML risk-prediction models for dialysis requirement in Acute Kidney Injury patients using large-scale longitudinal real-world EHR data (diagnoses, procedures, medications, labs) coded via ICD/CPT/LOINC standards.",
+      "Trained Transformer and RETAIN sequence models on longitudinal EHR data, addressing class imbalance via focal loss, evaluated with ROC-AUC, AUPRC, Sensitivity, Specificity, and F1.",
+      "Engineered a clinical preprocessing pipeline with standardized LOINC lab coding to identify high-risk patient cohorts and support clinical decision-support workflows."
+    ],
+    link: "https://github.com/Shrutij516/AKI_Dialysis_Prediction"
+  },
+  {
+    cat: "Hackathon · HackRare", band:"band-rose",
+    title: "PhenoExtract for Genomic Diagnostics",
+    date: "Mar 2026",
+    summary: "Clinical NLP pipeline extracting phenotype mentions and negations, mapped to HPO.",
+    bullets: [
+      "Built a clinical NLP pipeline extracting phenotype mentions and explicit exclusions from unstructured medical notes.",
+      "Mapped findings to Human Phenotype Ontology (HPO) concepts with negation detection to distinguish present vs. absent clinical findings for accurate phenotype profiling.",
+      "Designed a benchmarking framework on synthetic clinical notes evaluating extraction precision, recall, and F1."
+    ],
+    link: "https://github.com/Shrutij516/PhenoExtract"
+  },
+  {
+    cat: "Academic", band:"band-rose",
+    title: "Multimodal Transformer for CT + EHR Risk Prediction",
+    date: "Spring 2026",
+    summary: "Fuses CT image embeddings (ResNet-18) with structured EHR variables for risk prediction.",
+    bullets: [
+      "Built a multimodal deep learning model fusing CT image embeddings with structured EHR variables for clinical risk prediction using an ImageNet-pretrained ResNet-18.",
+      "Implemented transformer-based feature fusion combining radiology image embeddings with tabular clinical data.",
+      "Architected preprocessing pipelines for DICOM CT imaging and tabular healthcare data, including Hounsfield-unit windowing, for end-to-end multimodal modeling."
+    ],
+    link: "https://github.com/Shrutij516/CT-EHR-multimodal-transformer"
+  }
+];
+
+const otherProjects = [
+  {
+    cat: "Personal · Agentic AI", band:"band-blue",
+    title: "Atlas: Full-Stack Agentic Travel Assistant",
+    date: "Jun 2026",
+    summary: "Full-stack agentic AI assistant using a LangChain ReAct agent and MCP tool-calling.",
+    bullets: [
+      "Architected a full-stack agentic AI assistant using a LangChain ReAct agent, MCP tool-calling for multistep reasoning workflows, and Groq LLaMA 3.3 70B in Docker for real-time weather and news recommendations."
+    ],
+    link: "https://github.com/Shrutij516/atlas-ai-agent"
+  },
+  {
+    cat: "Academic · RAG Systems", band:"band-sage",
+    title: "Scalable Retrieval System Benchmarking for RAG",
+    date: "Sep 2025 – Nov 2025",
+    summary: "Large-scale RAG retrieval benchmarking with FAISS and Spark-based distributed indexing.",
+    bullets: [
+      "Built a RAG system with dense embeddings on large datasets and implemented FAISS and Spark-based distributed indexing to run large-scale indexing experiments (10k–50k chunks) under CPU-only constraints.",
+      "Analyzed and visualized retrieval system performance (p50/p95 latency, throughput), evaluating RAG vs. non-RAG tradeoffs and contributing to scalable system design insights."
+    ],
+    link: "https://github.com/Shrutij516/Scaling-Retrieval-System"
+  },
+  {
+    cat: "Academic · Quant Finance", band:"band-blue",
+    title: "Deep Learning for Order Book Prediction",
+    date: "Feb 2025 – May 2025",
+    summary: "High-frequency trading workflow on real-time Binance BTC–USDT order book data.",
+    bullets: [
+      "Designed a high-frequency trading workflow on real-time Binance BTC–USDT order book data.",
+      "Engineered microstructure features and trained BiGRU sequence algorithms to predict buy pressure (F1 87%) and estimate trading costs (spread, slippage)."
+    ],
+    link: "https://github.com/Shrutij516/Order-Book-Prediction"
+  },
+  {
+    cat: "Academic · Statistics", band:"band-sage",
+    title: "Terrorism Risk Forecasting",
+    date: "Feb 2025 – Apr 2025",
+    summary: "Forecasting pipeline on global terrorism data using time-series analysis and SMOTE.",
+    bullets: [
+      "Constructed a forecasting pipeline on global terrorism data using time-series analysis, bootstrap resampling, and SMOTE-enhanced classification, uncovering patterns in attack frequency and weapon–target lethality."
+    ],
+    link: "https://github.com/Shrutij516/Terrorism-Risk-Forecasting-using-R"
+  },
+  {
+    cat: "L3Cube Internship · NLP", band:"band-blue",
+    title: "Multilingual Named Entity Recognition",
+    date: "Jun 2023 – Feb 2024",
+    summary: "BiLSTM-CRF with HingBERT encodings for Hinglish NER, securing 85% F1-score.",
+    bullets: [
+      "Refined and validated a BiLSTM-CRF predictor with HingBERT encodings for Hinglish NER, securing an 85% F1-score.",
+      "Benchmarked against BiLSTM and attention models, showing the value of sequence processing in fused-dialect NLP."
+    ],
+    link: null
+  }
+];
+
+function renderCards(list, containerId){
+  const row = document.getElementById(containerId);
+  list.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'proj-card';
+    card.innerHTML = `
+      <div class="proj-band ${p.band}"><span class="cat">${p.cat}</span></div>
+      <div class="proj-body">
+        <h3>${p.title}</h3>
+        <p>${p.summary}</p>
+        <div class="date">${p.date}</div>
+      </div>
+    `;
+    card.addEventListener('click', () => openModal(p));
+    row.appendChild(card);
+  });
+}
+
+function scrollRow(id, dir){
+  document.getElementById(id).scrollBy({left: dir*300, behavior:'smooth'});
+}
+
+function openModal(p){
+  document.getElementById('modal-cat').textContent = p.cat;
+  document.getElementById('modal-title').textContent = p.title;
+  document.getElementById('modal-date').textContent = p.date;
+  const ul = document.getElementById('modal-bullets');
+  ul.innerHTML = '';
+  p.bullets.forEach(b => {
+    const li = document.createElement('li');
+    li.textContent = b;
+    ul.appendChild(li);
+  });
+  const linkDiv = document.getElementById('modal-link');
+  linkDiv.innerHTML = p.link ? `<a class="gh-link" href="${p.link}" target="_blank" rel="noopener">View on GitHub &rarr;</a>` : '';
+  document.getElementById('modal-overlay').classList.add('active');
+}
+document.getElementById('modal-close').addEventListener('click', () => {
+  document.getElementById('modal-overlay').classList.remove('active');
+});
+document.getElementById('modal-overlay').addEventListener('click', (e) => {
+  if(e.target.id === 'modal-overlay') e.target.classList.remove('active');
+});
+
+renderCards(healthcareProjects, 'healthcare-scroll');
+renderCards(otherProjects, 'projects-scroll');
+
+/* Typewriter hero */
+const words = ["an AI engineer.", "an NLP engineer.", "a researcher.", "a healthcare AI engineer."];
+let wordIndex = 0, charIndex = 0, deleting = false;
+function type(){
+  const el = document.getElementById('typewriter');
+  const current = words[wordIndex];
+  if(!deleting){
+    el.textContent = current.slice(0, charIndex+1);
+    charIndex++;
+    if(charIndex === current.length){ deleting = true; setTimeout(type, 1400); return; }
+  } else {
+    el.textContent = current.slice(0, charIndex-1);
+    charIndex--;
+    if(charIndex === 0){ deleting = false; wordIndex = (wordIndex+1) % words.length; }
+  }
+  setTimeout(type, deleting ? 35 : 68);
+}
+type();
+</script>
+
+</body>
+</html>
