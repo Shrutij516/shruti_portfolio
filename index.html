@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Shruti Jagdale, Portfolio</title>
+<title>Shruti Jagdale | Software Engineer, AI/ML</title>
+<meta name="description" content="Software engineer building full-stack AI products, backend services, distributed systems, and agentic LLM pipelines. M.S. Data Science, Stony Brook University." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://shrutij516.github.io/shruti_portfolio/" />
+<meta property="og:title" content="Shruti Jagdale | Software Engineer, AI/ML" />
+<meta property="og:description" content="Software engineer building full-stack AI products, backend services, distributed systems, and agentic LLM pipelines." />
+<meta property="og:image" content="https://shrutij516.github.io/shruti_portfolio/photo.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="Shruti Jagdale | Software Engineer, AI/ML" />
+<meta name="twitter:description" content="Software engineer building full-stack AI products, backend services, distributed systems, and agentic LLM pipelines." />
+<meta name="twitter:image" content="https://shrutij516.github.io/shruti_portfolio/photo.jpg" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
@@ -169,7 +179,7 @@
   .stamp-card ul li{margin-bottom:8px;}
 
   /* PROJECT GALLERY */
-  #healthcare, #projects{background:var(--sand);}
+  #healthcare, #projects, #security, #quant{background:var(--sand);}
   .gallery-head{display:flex; justify-content:space-between; align-items:flex-end; margin-bottom:36px; flex-wrap:wrap; gap:16px;}
   .gallery-arrows{display:flex; gap:10px;}
   .arrow-btn{
@@ -296,8 +306,10 @@
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#healthcare">Healthcare AI</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#security">AI Security</a></li>
+      <li><a href="#quant">Quant</a></li>
+      <li><a href="#healthcare">Healthcare AI</a></li>
       <li><a href="#publications">Publications</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="Shruti_Jagdale_Resume.pdf" target="_blank" rel="noopener">Resume</a></li>
@@ -338,12 +350,13 @@
       <div class="postcard-message">
         <h2>Why, hello.</h2>
         <p>
-          I'm Shruti, a software engineer who builds AI systems that ship, not just models that demo.
-          I work across the stack: FastAPI backends, React frontends, SQL and NoSQL data layers, and
-          cloud deployments on AWS, with distributed systems like a Paxos-replicated transaction store
-          on the side. On the AI/ML side, I build agentic LLM platforms, RAG pipelines, and LLM security
-          and evaluation tooling, plus healthcare ML on real clinical data. My research on low-resource
-          NLP has been published at IEEE, ACL, and Springer venues.
+          I'm Shruti, an AI/ML engineer who builds systems that ship, not just models that demo.
+          I've served LLaMA-70B behind a production multimodal RAG platform, built agentic LLM workflows
+          with tool calling and human-in-the-loop review, and red-teamed and hardened LLMs, from RL training
+          against prompt injection to an open-source contribution to an LLM red-teaming framework. I also apply
+          ML to healthcare and quantitative finance, with research on low-resource NLP published at IEEE, ACL,
+          and Springer. Underneath it all I'm a software engineer: FastAPI backends, React frontends, PostgreSQL,
+          AWS, and distributed systems in Go.
         </p>
       </div>
       <div class="postcard-divider"></div>
@@ -361,8 +374,8 @@
           </div>
           <div class="field">
             <div class="fl">Focus</div>
-            <div class="fv-main">Software Engineering &middot; AI/ML</div>
-            <div class="fv-sub">Agentic AI &middot; RAG &middot; Distributed Systems</div>
+            <div class="fv-main">AI/ML &middot; Software Engineering</div>
+            <div class="fv-sub">Agentic AI &middot; AI Security &middot; Distributed Systems</div>
           </div>
         </div>
         <div class="postmark-text">Postmarked from Stony Brook, NY</div>
@@ -379,17 +392,18 @@
 
     <div class="stamp-card">
       <div class="stamp-head">
-        <div><span class="title">Software Engineer, AI/ML</span></div>
+        <div><span class="title">AI/ML Software Engineer</span></div>
         <div class="date">May 2025 &ndash; Jan 2026 &nbsp;|&nbsp; Stony Brook, NY</div>
       </div>
       <div class="org-pill">Zeblok Computational</div>
       <ul>
-        <li>Developed FastAPI REST microservices for an agentic LLM platform serving LLaMA-70B via vLLM, cutting end-to-end API latency by 25%.</li>
-        <li>Engineered a multimodal RAG pipeline over text and images using LangChain, CLIP/MiniLM embeddings, ChromaDB, and OCR ingestion.</li>
-        <li>Built a recursive agent framework with MCP tool calling to invoke retrieval, OCR, and SQL tools mid-inference, behind a Streamlit chat UI.</li>
-        <li>Modeled SQL schemas for chat memory and embedding storage, then layered in Redis session caching, cutting retrieval time by 20%.</li>
-        <li>Tuned context chunking to cut irrelevant LLM outputs by 50%, with OpenTelemetry tracing and CI/CD on GitHub Actions and GitLab.</li>
-        <li>Hardened the platform with LLM Guard for PII and secret redaction, PyRIT red-teaming, and ModelScan supply-chain scans of model files.</li>
+        <li>Architected a multimodal RAG platform serving LLaMA-70B via vLLM at 0.9s time-to-first-token on A100 GPUs for external users.</li>
+        <li>Pitched and shipped a dual-embedding redesign (CLIP for images, MiniLM for text) to the CEO, enabling cross-modal answers.</li>
+        <li>Cut retrieval time by 20% and irrelevant answers by 50% with two-stage hierarchical retrieval and page-cited grounding.</li>
+        <li>Designed a recursive agent framework letting LLaMA-70B call MCP tools (vector search, web search) at inference time.</li>
+        <li>Red-teamed PII guardrails with 90 attack prompts (LLM Guard, PyRIT) and built RAFT synthetic test sets on Ray for evaluation.</li>
+        <li>Streamlined FastAPI REST microservices on Docker with Redis caching, lowering end-to-end API latency by 25%.</li>
+        <li>Automated CI/CD with GitHub Actions and monitored services with OpenTelemetry, working in Agile sprints with code reviews.</li>
       </ul>
     </div>
 
@@ -400,52 +414,39 @@
       </div>
       <div class="org-pill">Stony Brook University</div>
       <ul>
-        <li>Built an end-to-end clinical risk platform (31K+ patients, 8.7M+ EHR events) serving Transformer and RETAIN models for AKI dialysis risk.</li>
-        <li>Developed a FastAPI backend handling ICD/CPT/LOINC preprocessing, model inference, and dynamic selection of EHR feature groups.</li>
-        <li>Shipped a React + TypeScript frontend to visualize patient risk scores and compare models on ROC-AUC, AUPRC, and F1.</li>
-        <li>Designed a PostgreSQL store for patient data and prediction outputs, enabling cohort querying and filtering.</li>
+        <li>Built a full-stack AKI risk-scoring app (FastAPI REST APIs, React, TypeScript, PostgreSQL) covering 31K+ patients.</li>
+        <li>Engineered ETL into PostgreSQL over ~15 GB of HIPAA-regulated EHR data (20M+ events), defining cohorts via ICD/CPT codes.</li>
+        <li>Trained Transformer and RETAIN models in TensorFlow with focal loss, reducing missed high-risk patients by 51%.</li>
+        <li>Guarded against label leakage with a blanking window, and added LOINC kidney labs that lifted PR-AUC by 28%.</li>
       </ul>
     </div>
 
     <div class="stamp-card">
       <div class="stamp-head">
-        <div><span class="title">Machine Learning Engineer</span></div>
+        <div><span class="title">ML Research Engineer</span></div>
         <div class="date">Jun 2023 &ndash; Jun 2024 &nbsp;|&nbsp; Pune, India</div>
       </div>
       <div class="org-pill">L3Cube Research Lab</div>
       <ul>
-        <li>Built multi-GPU Hugging Face pipelines to fine-tune Gemma-2B and Gemma-2-2B via SFT and LoRA/PEFT on a 52K-pair corpus.</li>
-        <li>Ran manual evaluation against automated AI4Bharat benchmarks, surfacing gaps between benchmark scores and real output quality.</li>
-        <li>First-authored a Springer (ICCCN 2024) paper showing code-mixed HingBERT embeddings improve hate speech F1 by 28% over baselines.</li>
-        <li>Co-authored IEEE (ICETITE) and ACL (CHiPSAL) papers on code-mixed NER (84.8% F1) and adapting LLMs to low-resource settings.</li>
+        <li>Fine-tuned LLMs (PyTorch, Hugging Face) for low-resource Marathi via SFT, LoRA PEFT, and quantization on 52K pairs.</li>
+        <li>Reached a 65% manual-evaluation win rate over base models, catching quality gaps that AI4Bharat benchmarks missed.</li>
+        <li>Automated API-driven Parquet data pipelines and multi-GPU Linux training with FlashAttention.</li>
+        <li>First-authored a 10-model hate speech benchmark (F1 up to +28%) and co-authored code-mixed NER (84.8% F1).</li>
       </ul>
     </div>
 
     <div class="stamp-card" style="margin-bottom:0;">
       <div class="stamp-head">
-        <div><span class="title">Data Engineer, ML</span></div>
+        <div><span class="title">Data Scientist</span></div>
         <div class="date">Nov 2022 &ndash; Jul 2023 &nbsp;|&nbsp; Assam, India</div>
       </div>
       <div class="org-pill">FeyNN Labs</div>
       <ul>
-        <li>Built Python (pandas) ETL pipelines loading 10K+ EV and IoT sensor records into MySQL with normalized relational schemas.</li>
-        <li>Applied K-Means clustering and ensemble models (XGBoost, Random Forest) to model EV adoption, improving baseline accuracy by 59%.</li>
-        <li>Automated batch feature generation and wrote SQL queries feeding Tableau and Power BI dashboards for stakeholders.</li>
+        <li>Led a 7-person team shipping client solutions such as loan default prediction (232K records, 91% accuracy).</li>
+        <li>Engineered Python ETL pipelines into MySQL for K-Means EV segmentation, A/B tests, and Tableau/Power BI reports.</li>
+        <li>Benchmarked scikit-learn and XGBoost on 10K IoT sensor records with drift detection, cutting prediction error by 60%.</li>
       </ul>
     </div>
-  </div>
-</section>
-
-<!-- HEALTHCARE -->
-<section id="healthcare">
-  <div class="wrap">
-    <div class="gallery-head">
-      <div>
-        <div class="eyebrow">Healthcare AI</div>
-        <h2 class="section-title" style="margin-bottom:0;">Where ML meets medicine.</h2>
-      </div>
-    </div>
-    <div class="centered-row" id="healthcare-scroll"></div>
   </div>
 </section>
 
@@ -463,6 +464,45 @@
       </div>
     </div>
     <div class="scroll-row" id="projects-scroll"></div>
+  </div>
+</section>
+
+<!-- AI SECURITY -->
+<section id="security" class="gallery-section">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div>
+        <div class="eyebrow">AI Security</div>
+        <h2 class="section-title" style="margin-bottom:0;">Breaking and hardening LLMs.</h2>
+      </div>
+    </div>
+    <div class="centered-row" id="security-scroll"></div>
+  </div>
+</section>
+
+<!-- QUANT -->
+<section id="quant" class="gallery-section">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div>
+        <div class="eyebrow">Quant</div>
+        <h2 class="section-title" style="margin-bottom:0;">Models for markets and risk.</h2>
+      </div>
+    </div>
+    <div class="centered-row" id="quant-scroll"></div>
+  </div>
+</section>
+
+<!-- HEALTHCARE -->
+<section id="healthcare">
+  <div class="wrap">
+    <div class="gallery-head">
+      <div>
+        <div class="eyebrow">Healthcare AI</div>
+        <h2 class="section-title" style="margin-bottom:0;">Where ML meets medicine.</h2>
+      </div>
+    </div>
+    <div class="centered-row" id="healthcare-scroll"></div>
   </div>
 </section>
 
@@ -578,132 +618,176 @@ const healthcareProjects = [
 
 const otherProjects = [
   {
-    cat: "Open Source · LLM Security", band:"band-blue",
-    title: "DeepTeam: MCP Server Trust Exploitation Module",
-    date: "Sep 2026",
-    summary: "New red-teaming vulnerability module for DeepTeam, an open-source LLM red-teaming framework.",
-    bullets: [
-      "Surveyed DeepTeam's 36 existing vulnerability modules, identified a gap around MCP tool-trust exploitation, and built a new module covering 3 sub-types following the repo's code conventions.",
-      "Found and fixed a judge-evaluation bug where a tool-executed exploit could bypass detection behind a refusal-shaped reply.",
-      "Verified the fix live against GPT-4o-mini with zero regressions across 234 tests; opened as a pull request to the upstream repo."
+    "cat": "Personal · Go Backend",
+    "band": "band-blue",
+    "title": "Paxos Distributed Transaction Store",
+    "date": "Aug 2026 – Present",
+    "summary": "Sharded, fault-tolerant, strictly serializable transaction store in Go with Multi-Paxos and 2PC.",
+    "bullets": [
+      "Wrote a sharded transaction store in Go with Multi-Paxos per shard (leader election, PreVote, log catch-up) and Spanner-style 2PC across shards.",
+      "Implemented strict two-phase locking with wound-wait, durable SQLite WAL storage, exactly-once retries, and a gRPC client SDK.",
+      "Verified with a 1000-seed deterministic simulator, Porcupine linearizability checks, and chaos tests in CI, and cut leader elections by 35%.",
+      "Instrumented with OpenTelemetry tracing and Prometheus/Grafana metrics; shipped as a ~9 MB Docker image with GitHub Actions CI/CD."
     ],
-    link: "https://github.com/confident-ai/deepteam/pull/277"
+    "link": "https://github.com/Shrutij516/paxos-txn-store"
   },
   {
-    cat: "Personal · Full-Stack AI", band:"band-sage",
-    title: "Seller Support Copilot",
-    date: "Jul 2026 – Aug 2026",
-    summary: "Full-stack AI support app with versioned REST APIs, Bedrock RAG, and ECS Fargate deployment.",
-    bullets: [
-      "Built a full-stack AI support app for e-commerce sellers (Next.js, TypeScript, FastAPI) exposing 12 versioned REST endpoints with Cognito JWT auth and role-based access control.",
+    "cat": "Personal · Full-Stack AI",
+    "band": "band-sage",
+    "title": "Seller Support Copilot",
+    "date": "Jul 2026 – Sep 2026",
+    "summary": "Full-stack AI support app with versioned REST APIs, Bedrock RAG, and ECS Fargate deployment.",
+    "bullets": [
+      "Delivered a full-stack AI support app (Next.js, TypeScript, FastAPI REST APIs) with Cognito auth and role-based access control on AWS ECS Fargate.",
       "Designed a PostgreSQL schema with concurrency-safe refunds (SELECT FOR UPDATE) alongside DynamoDB for chat history.",
-      "Answered policy, order, and listing questions with AWS Bedrock Knowledge Bases RAG, Guardrails, and tool calling; deployed on ECS Fargate with OpenTelemetry tracing.",
-      "Reached 90% test coverage across 70+ unit and integration tests, run in GitHub Actions CI/CD."
+      "Grounded answers with AWS Bedrock Knowledge Bases RAG, Guardrails, and tool calling over seller order and listing data.",
+      "Tested with 130+ pytest and Playwright tests at 90% coverage, gated in GitHub Actions CI/CD."
     ],
-    link: "https://github.com/Shrutij516/seller-support-copilot"
+    "link": "https://github.com/Shrutij516/seller-support-copilot"
   },
   {
-    cat: "Personal · Agentic AI", band:"band-blue",
-    title: "Computer-Use Automation System",
-    date: "Sep 2026",
-    summary: "LLM agent discovers UI workflows, records them as versioned artifacts, and replays them deterministically.",
-    bullets: [
+    "cat": "Personal · Agentic AI",
+    "band": "band-blue",
+    "title": "Atlas: Full-Stack Multi-Agent Travel Assistant",
+    "date": "Jun 2026 – Present",
+    "summary": "LangGraph supervisor routing to parallel sub-agents, with human-in-the-loop approvals and Dockerized services.",
+    "bullets": [
+      "Architected a LangGraph supervisor that routes requests to parallel weather, news, and itinerary sub-agents and MCP tools, scoring 40/40 on 40 routing test queries.",
+      "Enforced human-in-the-loop approvals (approve, edit, reject with interrupt/resume checkpointing) and a SQLite audit log, passing 20/20 test proposals end to end.",
+      "Deployed as three Docker Compose services (MCP data server, FastAPI backend, nginx frontend) with streamed status updates."
+    ],
+    "link": "https://github.com/Shrutij516/atlas-ai-agent"
+  },
+  {
+    "cat": "Personal · Agentic AI",
+    "band": "band-sage",
+    "title": "Computer-Use Automation System",
+    "date": "Sep 2026",
+    "summary": "LLM agent discovers UI workflows, records them as versioned artifacts, and replays them deterministically.",
+    "bullets": [
       "Built an LLM-driven agent (Claude + Playwright, accessibility-tree locators) that discovers how to complete tasks in a legacy-styled banking app with no API.",
       "Recorded each run as a typed, versioned capability artifact where every step carries its own locator, fallback, and recovery hint.",
       "Replays artifacts deterministically with no LLM in the loop, backed by an error taxonomy, safety allowlist, PII masking, and human escalation/handoff on hard failures."
     ],
-    link: "https://github.com/Shrutij516/interface-ai-computer-use-assignment"
+    "link": "https://github.com/Shrutij516/interface-ai-computer-use-assignment"
   },
   {
-    cat: "Personal · LLM Evaluation", band:"band-sage",
-    title: "Eval Blind Spot Detector",
-    date: "Sep 2026",
-    summary: "Audits any labeled dataset and ruleset for coverage, density, confidence, and ambiguity gaps.",
-    bullets: [
+    "cat": "Academic · RAG Systems",
+    "band": "band-blue",
+    "title": "Scalable Retrieval System Benchmarking for RAG",
+    "date": "Sep 2025 – Nov 2025",
+    "summary": "Large-scale RAG retrieval benchmarking with FAISS and Spark-based distributed indexing.",
+    "bullets": [
+      "Built a RAG system with dense embeddings on large datasets and implemented FAISS and Spark-based distributed indexing to run large-scale indexing experiments (10k–50k chunks) under CPU-only constraints.",
+      "Analyzed and visualized retrieval system performance (p50/p95 latency, throughput), evaluating RAG vs. non-RAG tradeoffs and contributing to scalable system design insights."
+    ],
+    "link": "https://github.com/Shrutij516/Scaling-Retrieval-System"
+  },
+  {
+    "cat": "Academic · Statistics",
+    "band": "band-sage",
+    "title": "Terrorism Risk Forecasting",
+    "date": "Feb 2025 – Apr 2025",
+    "summary": "Forecasting pipeline on global terrorism data using time-series analysis and SMOTE.",
+    "bullets": [
+      "Constructed a forecasting pipeline on global terrorism data using time-series analysis, bootstrap resampling, and SMOTE-enhanced classification, uncovering patterns in attack frequency and weapon–target lethality."
+    ],
+    "link": "https://github.com/Shrutij516/Terrorism-Risk-Forecasting-using-R"
+  },
+  {
+    "cat": "L3Cube Internship · NLP",
+    "band": "band-blue",
+    "title": "Multilingual Named Entity Recognition",
+    "date": "Jun 2023 – Feb 2024",
+    "summary": "BiLSTM-CRF with HingBERT encodings for Hinglish NER, securing 85% F1-score.",
+    "bullets": [
+      "Refined and validated a BiLSTM-CRF predictor with HingBERT encodings for Hinglish NER, securing an 85% F1-score.",
+      "Benchmarked against BiLSTM and attention models, showing the value of sequence processing in fused-dialect NLP."
+    ],
+    "link": null
+  }
+];
+
+const securityProjects = [
+  {
+    "cat": "Open Source · LLM Red-Teaming",
+    "band": "band-blue",
+    "title": "DeepTeam: MCP Server Trust Exploitation Module",
+    "date": "Jul 2026 – Sep 2026",
+    "summary": "Three MCP tool-trust attacks contributed upstream to an open-source LLM red-teaming framework.",
+    "bullets": [
+      "Surveyed DeepTeam's 36 vulnerability modules, found a gap in MCP tool-trust exploitation, and contributed a module covering 3 attack types via an upstream PR.",
+      "Found and fixed an LLM-as-a-judge bypass where a tool-executed exploit hid behind a refusal-shaped reply, and flagged the same pattern in 15 upstream metrics.",
+      "Verified the fix live against GPT-4o-mini with zero regressions across 234 tests."
+    ],
+    "link": "https://github.com/confident-ai/deepteam/pull/277"
+  },
+  {
+    "cat": "Personal · RL for LLM Security",
+    "band": "band-sage",
+    "title": "GRPO for Prompt Injection Robustness",
+    "date": "Oct 2026",
+    "summary": "Trained an LLM with GRPO reinforcement learning to resist indirect prompt injection.",
+    "bullets": [
+      "Fine-tuned Qwen2.5-Instruct with TRL GRPO and LoRA on custom rewards that pay for answering the user's question and penalize following injected instructions.",
+      "Cut attack success on a held-out attack family from 35.3% to 3.0%, and on out-of-distribution SEP probes from 29.2% to 5.8%, while clean QA accuracy rose.",
+      "Pre-registered success criteria and reported paired bootstrap confidence intervals, with honest limits (single seed, small model, static attacks)."
+    ],
+    "link": "https://github.com/Shrutij516/grpo-injection-robustness"
+  },
+  {
+    "cat": "Personal · LLM Evaluation",
+    "band": "band-blue",
+    "title": "Eval Blind Spot Detector",
+    "date": "Sep 2026",
+    "summary": "Audits any labeled dataset and ruleset for coverage, density, confidence, and ambiguity gaps.",
+    "bullets": [
       "Built a domain-agnostic tool that audits a labeled dataset and classification ruleset for four blind-spot failure modes: coverage, density, confidence, and ambiguity.",
       "Used Wilson score confidence intervals for accuracy estimates and direct Claude API calls for pattern mining and ambiguity adjudication.",
       "Added a self-healing resilience layer; all four modules unit-tested (19 tests), live-verified, and exposed via CLI."
     ],
-    link: "https://github.com/Shrutij516/distyl-eval-audit"
-  },
+    "link": "https://github.com/Shrutij516/distyl-eval-audit"
+  }
+];
+
+const quantProjects = [
   {
-    cat: "Personal · Distributed Systems", band:"band-blue",
-    title: "Distributed Transaction Store",
-    date: "Sep 2026",
-    summary: "Sharded, fault-tolerant transaction store in Go with Multi-Paxos and Two-Phase Commit.",
-    bullets: [
-      "Built a sharded, fault-tolerant transaction store in Go using Multi-Paxos consensus with leader election and log recovery.",
-      "Implemented cross-shard Two-Phase Commit, two-phase locking, and write-ahead logging, verified under chaos tests.",
-      "Deployed a multi-node AWS cluster with Docker and a gRPC client SDK, tracking commit latency in Grafana."
+    "cat": "Personal · Insurance ALM",
+    "band": "band-sage",
+    "title": "Insurance Portfolio Solutions Engine",
+    "date": "Oct 2026",
+    "summary": "Surplus-aware asset allocation for a synthetic $1B annuity block, with stochastic ALM and stress testing.",
+    "bullets": [
+      "Built a tested Python engine for insurance asset-liability management: Ledoit-Wolf covariance, Bayes-Stein returns, and a surplus-based mean-variance optimizer.",
+      "Simulated 10,000 scenarios with Monte Carlo, a Vasicek rate model, and PCA yield-curve moves, plus crisis replays, VaR/CVaR, duration, convexity, and DV01.",
+      "Recommended a capital-aware portfolio that cut the 1-in-20 surplus loss from $155.5M to $71.5M, validated by 155 automated tests and a walk-forward backtest."
     ],
-    link: null
+    "link": "https://github.com/Shrutij516/insurance-portfolio-engine"
   },
   {
-    cat: "Personal · Quant Finance", band:"band-sage",
-    title: "Deep Hedging Under Market Frictions",
-    date: "Jun 2026 – Aug 2026",
-    summary: "PyTorch hedging policy under Heston stochastic volatility with transaction costs.",
-    bullets: [
+    "cat": "Personal · Quant Finance",
+    "band": "band-blue",
+    "title": "Deep Hedging Under Market Frictions",
+    "date": "Jun 2026 – Aug 2026",
+    "summary": "PyTorch hedging policy under Heston stochastic volatility with transaction costs.",
+    "bullets": [
       "Trained a PyTorch hedging policy for a 30-day ATM call under Heston stochastic volatility with 10bps transaction costs, optimizing entropic risk of terminal P&L through a simulated market.",
       "Achieved 16% lower entropic risk and smaller tail losses (CVaR 5%: 1.511 vs. 1.650) than Black-Scholes delta hedging on a 100,000-path held-out test set.",
       "Verified seed robustness (3/3 networks beat the benchmark) and stress-tested shifted vol regimes and moneyness, documenting where the policy underperforms."
     ],
-    link: "https://github.com/Shrutij516/deep-hedging"
+    "link": "https://github.com/Shrutij516/deep-hedging"
   },
   {
-    cat: "Personal · Agentic AI", band:"band-blue",
-    title: "Atlas: Full-Stack Multi-Agent Travel Assistant",
-    date: "Jun 2026 – Sep 2026",
-    summary: "LangGraph supervisor routing to parallel sub-agents, with Dockerized microservices and human-in-the-loop.",
-    bullets: [
-      "Designed a LangGraph supervisor that routes requests to parallel weather, news, and itinerary sub-agents with MCP tool calling.",
-      "Split the FastAPI backend and JS frontend into independently scalable Docker services behind nginx, streaming responses over SSE.",
-      "Added human-in-the-loop approvals (interrupt/resume with checkpointing) and an SQLite audit log."
-    ],
-    link: "https://github.com/Shrutij516/atlas-ai-agent"
-  },
-  {
-    cat: "Academic · RAG Systems", band:"band-sage",
-    title: "Scalable Retrieval System Benchmarking for RAG",
-    date: "Sep 2025 – Nov 2025",
-    summary: "Large-scale RAG retrieval benchmarking with FAISS and Spark-based distributed indexing.",
-    bullets: [
-      "Built a RAG system with dense embeddings on large datasets and implemented FAISS and Spark-based distributed indexing to run large-scale indexing experiments (10k–50k chunks) under CPU-only constraints.",
-      "Analyzed and visualized retrieval system performance (p50/p95 latency, throughput), evaluating RAG vs. non-RAG tradeoffs and contributing to scalable system design insights."
-    ],
-    link: "https://github.com/Shrutij516/Scaling-Retrieval-System"
-  },
-  {
-    cat: "Academic · Quant Finance", band:"band-blue",
-    title: "Deep Learning for Order Book Prediction",
-    date: "Feb 2025 – May 2025",
-    summary: "High-frequency trading workflow on real-time Binance BTC–USDT order book data.",
-    bullets: [
+    "cat": "Academic · Market Microstructure",
+    "band": "band-sage",
+    "title": "Deep Learning for Order Book Prediction",
+    "date": "Feb 2025 – May 2025",
+    "summary": "High-frequency trading workflow on real-time Binance BTC–USDT order book data.",
+    "bullets": [
       "Designed a high-frequency trading workflow on real-time Binance BTC–USDT order book data.",
       "Engineered microstructure features and trained BiGRU sequence algorithms to predict buy pressure (F1 87%) and estimate trading costs (spread, slippage)."
     ],
-    link: "https://github.com/Shrutij516/Order-Book-Prediction"
-  },
-  {
-    cat: "Academic · Statistics", band:"band-sage",
-    title: "Terrorism Risk Forecasting",
-    date: "Feb 2025 – Apr 2025",
-    summary: "Forecasting pipeline on global terrorism data using time-series analysis and SMOTE.",
-    bullets: [
-      "Constructed a forecasting pipeline on global terrorism data using time-series analysis, bootstrap resampling, and SMOTE-enhanced classification, uncovering patterns in attack frequency and weapon–target lethality."
-    ],
-    link: "https://github.com/Shrutij516/Terrorism-Risk-Forecasting-using-R"
-  },
-  {
-    cat: "L3Cube Internship · NLP", band:"band-blue",
-    title: "Multilingual Named Entity Recognition",
-    date: "Jun 2023 – Feb 2024",
-    summary: "BiLSTM-CRF with HingBERT encodings for Hinglish NER, securing 85% F1-score.",
-    bullets: [
-      "Refined and validated a BiLSTM-CRF predictor with HingBERT encodings for Hinglish NER, securing an 85% F1-score.",
-      "Benchmarked against BiLSTM and attention models, showing the value of sequence processing in fused-dialect NLP."
-    ],
-    link: null
+    "link": "https://github.com/Shrutij516/Order-Book-Prediction"
   }
 ];
 
@@ -753,6 +837,8 @@ document.getElementById('modal-overlay').addEventListener('click', (e) => {
 
 renderCards(healthcareProjects, 'healthcare-scroll');
 renderCards(otherProjects, 'projects-scroll');
+renderCards(securityProjects, 'security-scroll');
+renderCards(quantProjects, 'quant-scroll');
 
 /* Typewriter hero */
 const words = ["a software engineer.", "an AI/ML engineer.", "a backend engineer.", "an NLP researcher.", "a healthcare AI engineer."];
