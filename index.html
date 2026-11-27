@@ -196,6 +196,7 @@
   .centered-row{
     display:flex; gap:22px; flex-wrap:wrap; justify-content:center;
   }
+  .centered-row .proj-card{flex:0 0 calc((100% - 66px) / 4); min-width:240px;}
   .proj-card{
     flex:0 0 280px; scroll-snap-align:start; background:var(--cream-card); border-radius:14px;
     overflow:hidden; cursor:pointer; transition:transform .2s; border:1px solid rgba(35,42,66,0.06);
@@ -353,7 +354,7 @@
           I'm Shruti, an AI/ML engineer who builds systems that ship, not just models that demo.
           I've served LLaMA-70B behind a production multimodal RAG platform, built agentic LLM workflows
           with tool calling and human-in-the-loop review, and red-teamed and hardened LLMs, from RL training
-          against prompt injection to an open-source contribution to an LLM red-teaming framework. I also apply
+          against prompt injection to a module merged into an open-source LLM red-teaming framework. I also apply
           ML to healthcare and quantitative finance, with research on low-resource NLP published at IEEE, ACL,
           and Springer. Underneath it all I'm a software engineer: FastAPI backends, React frontends, PostgreSQL,
           AWS, and distributed systems in Go.
@@ -579,6 +580,20 @@
 <script>
 const healthcareProjects = [
   {
+    "cat": "Personal · Agentic AI",
+    "band": "band-rose",
+    "title": "Claims Review Agent for Payment Integrity",
+    "date": "Nov 2026",
+    "summary": "LangGraph agent that flags payment-integrity issues in synthetic medical claims, with verified citations and human review.",
+    "bullets": [
+      "Built a fixed LangGraph pipeline: deterministic rules check codes, unit limits, prices, and duplicates, then an LLM reads the clinical note against BM25-retrieved policies.",
+      "Kept an LLM flag only if it cites a policy criterion from the retrieved text and a verbatim quote from the note; anything unverifiable is rejected and logged.",
+      "Added human-in-the-loop review (approve, override, request info) with LangGraph interrupts and SQLite checkpoints, served through FastAPI and a React + TypeScript UI.",
+      "On a frozen 40-claim test split (single run, synthetic data), reached 1.00 decision accuracy vs 0.85 for a rules-only baseline, catching all 6 policy-reading flags it missed; 328 passing tests."
+    ],
+    "link": "https://github.com/Shrutij516/claims-review-agent"
+  },
+  {
     cat: "Coursework Research", band:"band-rose",
     title: "AKI Dialysis Risk Prediction",
     date: "Jan 2026 – May 2026",
@@ -714,10 +729,10 @@ const securityProjects = [
     "band": "band-blue",
     "title": "DeepTeam: MCP Server Trust Exploitation Module",
     "date": "Jul 2026 – Sep 2026",
-    "summary": "Three MCP tool-trust attacks contributed upstream to an open-source LLM red-teaming framework.",
+    "summary": "Three MCP tool-trust attacks as a new vulnerability module, merged into an open-source LLM red-teaming framework (PR #277).",
     "bullets": [
-      "Surveyed DeepTeam's 36 vulnerability modules, found a gap in MCP tool-trust exploitation, and contributed a module covering 3 attack types via an upstream PR.",
-      "Found and fixed an LLM-as-a-judge bypass where a tool-executed exploit hid behind a refusal-shaped reply, and flagged the same pattern in 15 upstream metrics.",
+      "Surveyed DeepTeam's 36 vulnerability modules, found a gap in MCP tool-trust exploitation, and built a module covering 3 attack types, merged upstream as PR #277.",
+      "Found and fixed an LLM-as-a-judge bypass where a tool-executed exploit hid behind a refusal-shaped reply, then opened PR #288 (open) fixing it in the BOLA and SSRF metrics and issue #289 tracking it elsewhere.",
       "Verified the fix live against GPT-4o-mini with zero regressions across 234 tests."
     ],
     "link": "https://github.com/confident-ai/deepteam/pull/277"
@@ -727,7 +742,7 @@ const securityProjects = [
     "band": "band-sage",
     "title": "GRPO for Prompt Injection Robustness",
     "date": "Oct 2026",
-    "summary": "Trained an LLM with GRPO reinforcement learning to resist indirect prompt injection.",
+    "summary": "Trained an LLM with GRPO reinforcement learning to resist indirect prompt injection. Unseen-attack success rate 35.3% to 3.0% (early single-seed result).",
     "bullets": [
       "Fine-tuned Qwen2.5-Instruct with TRL GRPO and LoRA on custom rewards that pay for answering the user's question and penalize following injected instructions.",
       "Cut attack success on a held-out attack family from 35.3% to 3.0%, and on out-of-distribution SEP probes from 29.2% to 5.8%, while clean QA accuracy rose.",
